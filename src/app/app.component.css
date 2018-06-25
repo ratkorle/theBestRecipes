@@ -1,0 +1,12 @@
+.brand {
+  color: whitesmoke;
+  background-color: darkred;
+  font-size: 2rem;
+  margin-top: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.navigation {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}

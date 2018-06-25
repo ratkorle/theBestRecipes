@@ -1,0 +1,12 @@
+.ingredientList {
+  margin-right: 1rem;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+}
+.ingredients {
+  border: solid black;
+  margin-right: 1rem;
+  background-color: rgba(230, 230, 230, 0.3);
+}

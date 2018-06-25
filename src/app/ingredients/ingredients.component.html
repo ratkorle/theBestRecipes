@@ -1,0 +1,13 @@
+
+
+
+        <ul class="ingredients">
+          <li *ngFor="let ingredient of ingredients">{{ ingredient.name }}<label>
+            <input type="number" name="quantity" min="0" max="3000" value="1"  [ngModel]="detail?.quantity">
+          </label>
+            <button type="submit" id="btnAddToRecipe" (click)="addToRecipe(this.detail)">Add to Recipe</button>
+          </li>
+        </ul>
+
+
+

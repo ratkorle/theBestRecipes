@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(../node_modules/bootstrap/dist/css/bootstrap.min.css);
+body{
+  background: url("../src/assets/image/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: lighten;
+  height: 100%;
+  background-position: center;
+  background-attachment: fixed;
+}
