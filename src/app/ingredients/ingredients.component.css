@@ -10,3 +10,6 @@
   margin-right: 1rem;
   background-color: rgba(230, 230, 230, 0.3);
 }
+.right {
+  float: right;
+}

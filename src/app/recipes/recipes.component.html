@@ -1,26 +1,81 @@
-<div class="container createRecipe">
+<div class="container newRecipe">
   <div class="row">
-    <div class="col-md-12 col-lg-12">
-      <h5 class="text-center">Create New Recipe</h5>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-6">
       <h6>Ingredients List:</h6>
-  <app-ingredients></app-ingredients>
+      <app-ingredients (addIngredient)="onNewAddedIngredient($event)"></app-ingredients>
+
     </div>
-    <div class="col-md-7">
-    <table>
-      <tr>
-        <th>Ingredient</th>
-        <th>Quantity</th>
-      </tr>
-<!--      <tr *ngFor="let newIngredient of newRecipe.recipeIngredients; let i = index;">
-        <td>{{ newIngredient.name }}</td>
-        <td>{{ newIngredient.quantity }}</td>
-        <button id="deletebtn">x</button>
-      </tr>-->
-    </table>
+    <div class="col-md-6">
+      <div class="container">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>Insert Recipe Information</h4>
+          </div>
+          <div class="panel-body">
+            <form #newRecipeForm="ngForm" (ngSubmit)="onCreateRecipe(newRecipeForm.value)"> <!--onClick -->
+              <div class="row">
+                <div class="form-group col-sm-6">
+                  <label for="name">Recipe Name</label>
+                  <input type="text" class="form-control" placeholder="Recipe Name" name="name" ngModel required>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="source">Recipe Source</label>
+                  <input type="text" class="form-control" placeholder="Recipe Source" name="source" ngModel>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-6">
+                  <label for="preparationHours" class="">Preparation</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Hours"
+                    name="hours"
+                    ngModel>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="preparationMins" class="">Time</label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="59"
+                    class="form-control"
+                    placeholder="Minutes"
+                    name="mins"
+                    ngModel
+                  required>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-12">
+                  <label for="instructions" class="">Instructions</label>
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    placeholder="Instructions"
+                    name="instructions"
+                    ngModel
+                    required>
+        </textarea>
+                </div>
+                <div class="form-group col-sm-12">
+                  <button
+                    class="btn btn-primary listing-button"
+                    type="submit">
+                    Create Recipe
+                  </button>
+                </div>
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+<div class="container recipeList">
+  <app-recipe-list></app-recipe-list>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 // import { NgForm } from '@angular/forms';
 import { INGREDIENT } from '../data/mock-ingredients';
 import { RecipesService } from '../services/recipes.service';
@@ -10,18 +10,19 @@ import { Ingredient } from '../models/ingredients-model';
   styleUrls: ['./ingredients.component.css']
 })
 export class IngredientsComponent implements OnInit {
-  @Input ()
-    detail: Ingredient;
-
-  ingredients = INGREDIENT;
+  ingredients = [...INGREDIENT];
   constructor(private recipeService: RecipesService) { }
 
+  @Output()
+  addIngredient: EventEmitter<any> = new EventEmitter();
   ngOnInit() {
-  this.detail = Object.assign({}, this.detail);
-  this.detail.quantity = 0;
   }
-  addToRecipe() {
-    this.recipeService.addIngredient(this.detail);
+  /*onQuantityChange(quantity: number) {
+    this.detail.quantity = quantity;
+  }*/
+  addToRecipe(ingredient) {
+    this.recipeService.addIngredient(ingredient);
+    this.addIngredient.emit(ingredient);
     alert('Successfully added');
   }
 }

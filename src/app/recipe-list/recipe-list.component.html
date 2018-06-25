@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">Recipe List</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table>
+        <tr *ngIf="!recipe.showDetails">
+          <td>{{ recipe.name }}</td>
+          <td>{{ recipe.source }}</td>
+          <td>{{ recipe.recipeIngredients }}</td>
+          <td>Preparation Time: {{ recipe.preparationHours}}h</td>
+          <td>{{ recipe.preparationMins }}</td>
+          <button class="btn btn-sm btn-success" *ngIf="!crib.showDetails"
+                  (click)="crib.showDetails =!crib.showDetails">
+            Details
+          </button>
+          <button id="deletebtn" (click)="removeItemFromCart(i)">x</button>
+        </tr>
+        <tr *ngIf="recipe.showDetails">
+          <td>{{ recipe.instructions }}</td>
+          <button class="btn btn-sm btn-danger"
+                  (click)="crib.showDetails = !crib.showDetails">
+            Close
+          </button>
+          <button id="deletebtn" (click)="removeItemFromCart(i)">x</button>
+        </tr>
+
+
+      </table>
+
+    </div>
+  </div>
+
+
+</div>

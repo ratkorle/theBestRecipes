@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RecipesService } from '../services/recipes.service';
 import { Recipe } from '../models/recipe-model';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-recipes',
@@ -8,7 +9,8 @@ import { Recipe } from '../models/recipe-model';
   styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit {
-  newRecipe: Recipe;
+  @ViewChild('newRecipeForm') newRecipeForm: NgForm;
+  newRecipe = new Recipe();
 
   constructor(private recipeService: RecipesService) { }
 
@@ -17,5 +19,21 @@ export class RecipesComponent implements OnInit {
       this.newRecipe = JSON.parse(window.localStorage.newRecipe);
     }
   }
+  onCreateRecipe(data) {
+    this.recipeService.addRecipe(data);
+    this.newRecipeForm.reset();
+  }
+  onNewAddedIngredient(ingredient) {
+    const newRecipeCopy = {...this.newRecipe};
+    newRecipeCopy.recipeIngredients.push(ingredient);
+    this.newRecipe = {...newRecipeCopy};
+  }
 
+  removeIngredient(ind) {
+    const newRecipeCopy = {...this.newRecipe};
+    newRecipeCopy.recipeIngredients =
+      newRecipeCopy.recipeIngredients.filter((ingredient, index) => index !== ind);
+    localStorage.setItem('newRecipe', JSON.stringify(newRecipeCopy));
+    this.newRecipe = {...newRecipeCopy};
+  }
 }

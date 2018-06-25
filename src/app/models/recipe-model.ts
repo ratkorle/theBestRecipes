@@ -4,17 +4,19 @@ export class Recipe {
  public name: string;
  public source: string;
  public recipeIngredients: Ingredient[];
- public preparationTime: string;
+ public preparationHours: string;
+ public preparationMins: string;
  public instructions: string;
 
 
 
 
- constructor(name: string, source: string, recipeIngredients: Ingredient[], preparationTime: string, instructions: string ) {
+ constructor(name: string, source: string, recipeIngredients: Ingredient[] = [], preparationHours: string, preparationMins, instructions: string ) {
     this.name = name;
     this.source = source;
     this.recipeIngredients = recipeIngredients;
-    this.preparationTime = preparationTime;
+    this.preparationHours = preparationHours;
+    this.preparationMins = preparationMins;
     this.instructions = instructions;
 
   }

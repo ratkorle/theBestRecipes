@@ -9,13 +9,15 @@ import { RecipesComponent } from './recipes/recipes.component';
 
 import {IngredientsService} from './services/ingredients.service';
 import {RecipesService} from './services/recipes.service';
+import { RecipeListComponent } from './recipe-list/recipe-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     IngredientsComponent,
-    RecipesComponent
+    RecipesComponent,
+    RecipeListComponent
   ],
   imports: [
     BrowserModule,

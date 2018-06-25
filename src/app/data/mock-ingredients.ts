@@ -1,6 +1,6 @@
 import { Ingredient } from '../models/ingredients-model';
 
-export const INGREDIENT: Ingredient[] = [
+export const INGREDIENT:  Ingredient[] = [
   { name: 'Flour', quantity: 0},
   { name: 'Milk', quantity: 0},
   { name: 'Oil', quantity: 0},
